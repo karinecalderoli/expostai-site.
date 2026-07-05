@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ExPost AI - Meu Painel Pessoal</title>
+    <title>ExPost AI - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,16 +13,23 @@
                 <h2>EXPOST <span class="badge">AI</span></h2>
                 <p class="sublogo">motor de cenas virais</p>
             </div>
+            
             <nav class="menu">
-                <a href="#" class="menu-item active" onclick="navegar('dashboard')">📊 Dashboard</a>
-                <a href="#" class="menu-item" onclick="navegar('editor')">✂️ Editor de Vídeo</a>
-                <a href="#" class="menu-item" onclick="navegar('wallpapers')">🖼️ Meus Wallpapers</a>
+                <a href="#" class="menu-item active" onclick="verTela('dashboard', this)">📊 Dashboard</a>
+                <a href="#" class="menu-item" onclick="verTela('bib-premium', this)">⭐ Biblioteca premium</a>
+                <a href="#" class="menu-item" onclick="verTela('minha-bib', this)">📁 Minha biblioteca</a>
+                <a href="#" class="menu-item" onclick="verTela('editor', this)">✂️ Editor</a>
+                <a href="#" class="menu-item" onclick="verTela('agendamentos', this)">📅 Agendamentos</a>
+                <a href="#" class="menu-item" onclick="verTela('historico', this)">⏱️ Histórico</a>
+                <a href="#" class="menu-item" onclick="verTela('redes', this)">🔗 Redes conectadas</a>
+                <a href="#" class="menu-item" onclick="verTela('wallpapers', this)">🖼️ Wallpapers</a>
             </nav>
+
             <div class="user-profile">
                 <div class="avatar">MC</div>
                 <div class="user-info">
                     <p class="username">Marcos Costa</p>
-                    <p class="plan">Painel Pessoal Ativo</p>
+                    <p class="plan">Plano ativo • R$18,99/mês</p>
                 </div>
             </div>
         </aside>
@@ -30,39 +37,22 @@
         <main class="main-content">
             <header class="top-header">
                 <div>
-                    <h1 id="page-title">Dashboard</h1>
-                    <p class="subtitle" id="page-subtitle">Visão geral da sua conta</p>
+                    <h1 id="main-title">Dashboard</h1>
+                    <p class="subtitle" id="main-subtitle">Visão geral da sua conta</p>
                 </div>
                 <div class="header-actions">
-                    <button class="btn-primary" onclick="navegar('editor')">+ Novo vídeo / Editar</button>
+                    <button class="btn-notif">🔔<span class="dot"></span></button>
+                    <div class="user-icon-btn">👤</div>
+                    <button class="btn-primary" onclick="verTela('editor', document.querySelector('[onclick*=\'editor\']'))">+ Novo vídeo</button>
                 </div>
             </header>
 
-            <div id="tela-dashboard">
+            <div id="tela-dashboard" class="aba-conteudo">
                 <section class="stats-grid">
                     <div class="card">
-                        <p class="card-title">Vídeos Criados</p>
-                        <h3 id="txt-publicados">1</h3>
-                        <span class="card-sub positive">Pronto para download</span>
+                        <p class="card-title">Vídeos publicados</p>
+                        <h3>238</h3>
+                        <span class="card-sub positive">+18 esta semana</span>
                     </div>
                     <div class="card">
-                        <p class="card-title">Armazenamento Local</p>
-                        <h3>Ilimitado</h3>
-                        <span class="card-sub">Roda direto no seu PC</span>
-                    </div>
-                </section>
-
-                <div class="content-market">
-                    <section class="videos-section">
-                        <h3>Seus Vídeos Recentes</h3>
-                        <div class="video-list" id="lista-videos">
-                            <div class="video-item">
-                                <div class="play-icon">▶</div>
-                                <div class="video-details">
-                                    <h4>Vídeo Exemplo — Comece no menu "Editor"</h4>
-                                    <p>Faça upload de um vídeo real seu para editar e baixar</p>
-                                </div>
-                                <span class="status-badge published">Pronto</span>
-                            </div>
-                        </div>
-                    </section
+                        <p class="card-
