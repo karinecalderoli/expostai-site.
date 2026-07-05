@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 24px;
+    flex-shrink: 0;
 }
 
 .logo-area {
@@ -120,20 +121,20 @@ body {
     font-size: 14px;
 }
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
 .btn-icon {
     background-color: #1f1f23;
     border: 1px solid #222226;
     color: white;
-    width: 36px;
-    height: 36px;
+    padding: 8px;
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.btn-icon:hover { background-color: #2a2a30; }
+
+.active-btn {
+    border-color: #e11d48 !important;
+    color: #e11d48 !important;
 }
 
 .btn-primary {
@@ -144,12 +145,14 @@ body {
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
 }
+.btn-primary:hover { background-color: #be123c; }
 
-/* Cards Métricas */
+/* Cards */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     margin-bottom: 32px;
 }
@@ -178,42 +181,28 @@ body {
 }
 
 .positive { color: #10b981; }
-.alert { color: #f59e0b; }
 
-/* Grid de Conteúdo Inferior */
+/* Grid Conteúdo */
 .content-market {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr;
 }
 
-.videos-section, .networks-section {
+.videos-section {
     background-color: #121214;
     border: 1px solid #222226;
     padding: 24px;
     border-radius: 12px;
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.see-all {
-    color: #6b7280;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-.video-list, .network-list {
+.video-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-top: 15px;
 }
 
-.video-item, .network-item {
+.video-item {
     display: flex;
     align-items: center;
     background-color: #1a1a1e;
@@ -234,11 +223,11 @@ body {
     margin-right: 16px;
 }
 
-.video-details, .net-details {
+.video-details {
     flex-grow: 1;
 }
 
-.video-details h4, .net-details h4 {
+.video-details h4 {
     font-size: 14px;
     font-weight: 500;
 }
@@ -252,31 +241,39 @@ body {
     font-size: 11px;
     padding: 4px 8px;
     border-radius: 4px;
-    text-transform: lowercase;
+    background-color: rgba(16, 185, 129, 0.1); 
+    color: #10b981;
 }
 
-.published { background-color: rgba(16, 185, 129, 0.1); color: #10b981; }
-.scheduled { background-color: rgba(107, 114, 128, 0.2); color: #9ca3af; }
-.error { background-color: rgba(239, 68, 68, 0.1); color: #ef4444; }
+/* ÁREA ESTRUTURAL DO EDITOR */
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    align-items: start;
+}
 
-/* Redes */
-.net-logo {
-    width: 36px;
-    height: 36px;
+.editor-left {
+    background-color: #121214;
+    border: 1px solid #222226;
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-right: 12px;
+    min-height: 520px;
 }
 
-.yt { background-color: #ff0000; color: white; }
-.tt { background-color: #010101; color: white; border: 1px solid #333; }
-.ig { background-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); background: #e1306c; color: white; }
-.x { background-color: #000000; color: white; border: 1px solid #333; }
-
-.status-connected { font-size: 11px; color: #10b981; }
-.status-disconnected { font-size: 11px; color: #ef4444; }
-.disconnected { opacity: 0.5; }
+.video-preview-box {
+    position: relative;
+    background: #000;
+    width: 280px; /* Padrão celular 9:16 */
+    height: 480px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #333;
+}
